@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hekmatullah"BARAKZAI" — Senior Web Developer & UI/UX Designer</title>
+<meta name="description" content="Portfolio of Hekmat BARAKZAI, Senior Web Developer & UI/UX Designer building fast, beautiful, accessible websites and apps.">
+<meta property="og:title" content="Hekmat BARAKZAI — Senior Web Developer & UI/UX Designer">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg"><i class="orb o1"></i><i class="orb o2"></i></div>
+<header class="nav" id="nav">
+ <a href="#home" class="logo">YN<span>.</span></a>
+ <nav id="links">
+  <a href="#about" data-i18n="nav_about">About</a><a href="#services" data-i18n="nav_services">Services</a><a href="#work" data-i18n="nav_work">Work</a><a href="#experience" data-i18n="nav_exp">Experience</a><a href="#contact" data-i18n="nav_contact">Contact</a>
+ </nav>
+ <div class="tools">
+  <button class="icon" id="lang" aria-label="Language">FA</button>
+  <button class="icon" id="theme" aria-label="Toggle theme">☾</button>
+  <a href="#contact" class="btn magnetic sm" data-i18n="hire">Hire Me</a>
+  <button class="icon burger" id="burger" aria-label="Menu">☰</button>
+ </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+ <div class="hero-text">
+  <p class="muted" data-i18n="hi">Hi, I'm</p>
+  <h1><span id="typed"></span><b class="caret">|</b></h1>
+  <p class="lead" data-i18n="lead">I design and build fast, accessible, beautiful products that people enjoy using.</p>
+  <div class="cta"><a href="#work" class="btn pulse" data-i18n="viewwork">View My Work</a><a href="cv.pdf" download class="btn outline" data-i18n="cv">Download CV</a></div>
+  <div class="stats">
+   <div><b data-count="120">0</b>+<span data-i18n="s1">Projects Completed</span></div>
+   <div><b data-count="60">0</b>+<span data-i18n="s2">Happy Clients</span></div>
+   <div><b data-count="8">0</b><span data-i18n="s3">Years Experience</span></div>
+  </div>
+ </div>
+ <div class="photo-wrap">
+  <div class="ring"><img src="assets/photo.jpg" alt="Portrait of Hekmat BARAKZAI" width="360" height="360" onerror="this.style.display='none'"></div>
+  <span class="badge"><i></i><em data-i18n="avail">Available for Work</em></span>
+ </div>
+</section>
+
+<section id="about" class="sec reveal">
+ <h2 data-i18n="t_about">About Me</h2>
+ <div class="two">
+  <p class="lead" data-i18n="bio">I'm a senior web developer and UI/UX designer with 8+ years of experience shipping products for startups and global brands. I bridge design and engineering — from research and wireframes to pixel-perfect, performant code.</p>
+  <div class="skills" id="skills"></div>
+ </div>
+</section>
+
+<section id="services" class="sec reveal">
+ <h2 data-i18n="t_services">Services</h2>
+ <div class="grid4">
+  <article class="card tilt"><span class="ico">⌨</span><h3 data-i18n="sv1">Web Development</h3><p class="muted" data-i18n="sv1d">Clean, scalable front-end and full-stack builds.</p></article>
+  <article class="card tilt"><span class="ico">✦</span><h3 data-i18n="sv2">UI/UX Design</h3><p class="muted" data-i18n="sv2d">Research-led interfaces that convert and delight.</p></article>
+  <article class="card tilt"><span class="ico">▭</span><h3 data-i18n="sv3">Responsive Design</h3><p class="muted" data-i18n="sv3d">Flawless on every phone, tablet, and desktop.</p></article>
+  <article class="card tilt"><span class="ico">⛁</span><h3 data-i18n="sv4">E-Commerce</h3><p class="muted" data-i18n="sv4d">Fast stores built to sell, with smooth checkout.</p></article>
+ </div>
+</section>
+
+<section id="work" class="sec reveal">
+ <h2 data-i18n="t_work">Selected Work</h2>
+ <div class="filters" id="filters"><button class="chip on" data-f="all">All</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="ui">UI-UX</button><button class="chip" data-f="app">Apps</button></div>
+ <div class="grid3" id="projects"></div>
+</section>
+
+<section id="experience" class="sec reveal">
+ <h2 data-i18n="t_exp">Experience</h2>
+ <ol class="timeline">
+  <li><time>2022 – Now</time><h3>Senior Web Developer, Company A</h3><p class="muted">Led a 6-person team; cut load time 55% and lifted conversion 28%.</p></li>
+  <li><time>2019 – 2022</time><h3>UI/UX Designer & Developer, Studio B</h3><p class="muted">Built a design system used across 12 products.</p></li>
+  <li><time>2016 – 2019</time><h3>Front-End Developer, Agency C</h3><p class="muted">Delivered 40+ client sites on time and on budget.</p></li>
+ </ol>
+</section>
+
+<section id="testimonials" class="sec reveal">
+ <h2 data-i18n="t_test">Kind Words</h2>
+ <div class="carousel"><div class="track" id="track"></div><div class="dots" id="dots"></div></div>
+</section>
+
+<section id="contact" class="sec reveal">
+ <h2 data-i18n="t_contact">Let's Talk</h2>
+ <div class="two">
+  <form id="form" class="card" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+   <input name="name" placeholder="Name" required autocomplete="name">
+   <input name="email" type="email" placeholder="Email" required autocomplete="email">
+   <textarea name="message" rows="5" placeholder="Message" required></textarea>
+   <button class="btn" type="submit" data-i18n="send">Send Message</button>
+   <p id="status" role="status" class="muted"></p>
+  </form>
+  <div class="side">
+   <a class="btn big pulse magnetic" href="mailto:you@example.com" data-i18n="together">Let's Work Together</a>
+   <div class="socials"><a href="https://github.com/YOUR_USERNAME">GitHub</a><a href="https://linkedin.com/in/YOUR_USERNAME">LinkedIn</a><a href="https://instagram.com/YOUR_USERNAME">Instagram</a><a href="mailto:you@example.com">Email</a></div>
+  </div>
+ </div>
+</section>
+</main>
+<footer>© <span id="yr"></span> Hekmat BARAKZAI</footer>
+<button id="top" class="icon" aria-label="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
