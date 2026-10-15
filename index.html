@@ -1,107 +1,134 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hekmatullah"BARAKZAI" — Senior Web Developer & UI/UX Designer</title>
-<meta name="description" content="Portfolio of Hekmat BARAKZAI, Senior Web Developer & UI/UX Designer building fast, beautiful, accessible websites and apps.">
-<meta property="og:title" content="Hekmat BARAKZAI — Senior Web Developer & UI/UX Designer">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07070d">
+  <meta name="description" content="Portfolio of Hekmatullah Barakzai, Computer Science Student & IT Developer. Explore Hikmat AI, Gym Management System, and my interests in networking and software development.">
+  <meta property="og:title" content="Hekmatullah Barakzai — Computer Science Student & IT Developer">
+  <meta property="og:description" content="Projects, skills, and contact information for Hekmatullah Barakzai.">
+  <meta property="og:type" content="website">
+  <title>Hekmatullah Barakzai — Computer Science Student & IT Developer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<div class="bg"><i class="orb o1"></i><i class="orb o2"></i></div>
-<header class="nav" id="nav">
- <a href="#home" class="logo">YN<span>.</span></a>
- <nav id="links">
-  <a href="#about" data-i18n="nav_about">About</a><a href="#services" data-i18n="nav_services">Services</a><a href="#work" data-i18n="nav_work">Work</a><a href="#experience" data-i18n="nav_exp">Experience</a><a href="#contact" data-i18n="nav_contact">Contact</a>
- </nav>
- <div class="tools">
-  <button class="icon" id="lang" aria-label="Language">FA</button>
-  <button class="icon" id="theme" aria-label="Toggle theme">☾</button>
-  <a href="#contact" class="btn magnetic sm" data-i18n="hire">Hire Me</a>
-  <button class="icon burger" id="burger" aria-label="Menu">☰</button>
- </div>
-</header>
+  <div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i></div>
+  <header class="nav" id="nav">
+    <a href="#home" class="logo" aria-label="Hekmatullah Barakzai home">HB<span>.</span></a>
+    <nav id="links" aria-label="Main navigation">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#services" data-i18n="nav_services">Interests</a>
+      <a href="#work" data-i18n="nav_work">Projects</a>
+      <a href="#experience" data-i18n="nav_exp">Journey</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button type="button" class="icon" id="lang" aria-label="Switch website language" title="Switch language">FA</button>
+      <button type="button" class="icon" id="theme" aria-label="Toggle dark and light theme" title="Toggle theme">☾</button>
+      <a href="#contact" class="btn magnetic sm" data-i18n="hire">Contact Me</a>
+      <button type="button" class="icon burger" id="burger" aria-label="Open navigation menu" aria-controls="links" aria-expanded="false">☰</button>
+    </div>
+  </header>
 
-<main>
-<section id="home" class="hero">
- <div class="hero-text">
-  <p class="muted" data-i18n="hi">Hi, I'm</p>
-  <h1><span id="typed"></span><b class="caret">|</b></h1>
-  <p class="lead" data-i18n="lead">I design and build fast, accessible, beautiful products that people enjoy using.</p>
-  <div class="cta"><a href="#work" class="btn pulse" data-i18n="viewwork">View My Work</a><a href="cv.pdf" download class="btn outline" data-i18n="cv">Download CV</a></div>
-  <div class="stats">
-   <div><b data-count="120">0</b>+<span data-i18n="s1">Projects Completed</span></div>
-   <div><b data-count="60">0</b>+<span data-i18n="s2">Happy Clients</span></div>
-   <div><b data-count="8">0</b><span data-i18n="s3">Years Experience</span></div>
-  </div>
- </div>
- <div class="photo-wrap">
-  <div class="ring"><img src="assets/photo.jpg" alt="Portrait of Hekmat BARAKZAI" width="360" height="360" onerror="this.style.display='none'"></div>
-  <span class="badge"><i></i><em data-i18n="avail">Available for Work</em></span>
- </div>
-</section>
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <p class="eyebrow" data-i18n="hero_eyebrow">WELCOME TO MY PORTFOLIO</p>
+        <h1><span id="typed">Hekmatullah Barakzai</span><b class="caret" aria-hidden="true">|</b></h1>
+        <p class="hero-role" data-i18n="role">Computer Science Student &amp; IT Developer</p>
+        <p class="lead" data-i18n="lead">I'm interested in networking, software development, and building useful web applications.</p>
+        <div class="cta">
+          <a href="#work" class="btn pulse" data-i18n="viewwork">Explore My Projects</a>
+          <a href="#contact" class="btn outline" data-i18n="contactcta">Get in Touch</a>
+        </div>
+        <div class="stats" aria-label="Portfolio highlights">
+          <div><b>02</b><span data-i18n="s1">Featured Projects</span></div>
+          <div><b>BCS</b><span data-i18n="s2">Degree in Progress</span></div>
+          <div><b>IT</b><span data-i18n="s3">Development &amp; Networking</span></div>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <div class="ring"><div class="avatar-content"><span class="avatar-code" aria-hidden="true">&lt;/&gt;</span><strong>HB</strong><small>DEVELOPER</small></div></div>
+        <span class="availability"><i aria-hidden="true"></i><em data-i18n="avail">Learning &amp; Building</em></span>
+      </div>
+    </section>
 
-<section id="about" class="sec reveal">
- <h2 data-i18n="t_about">About Me</h2>
- <div class="two">
-  <p class="lead" data-i18n="bio">I'm a senior web developer and UI/UX designer with 8+ years of experience shipping products for startups and global brands. I bridge design and engineering — from research and wireframes to pixel-perfect, performant code.</p>
-  <div class="skills" id="skills"></div>
- </div>
-</section>
+    <section id="about" class="sec reveal">
+      <h2 data-i18n="t_about">About Me</h2>
+      <div class="two">
+        <div>
+          <p class="lead about-lead" data-i18n="bio">I'm a Computer Science student interested in networking, software development, and building useful web applications.</p>
+          <p class="muted" data-i18n="bio_extra">I enjoy learning by building real projects and improving my skills in programming and information technology.</p>
+        </div>
+        <div>
+          <h3 class="panel-heading" data-i18n="skills_heading">Technologies &amp; Interests</h3>
+          <div class="skills" id="skills" aria-label="Technologies and interests">
+            <span class="skill-pill">HTML</span><span class="skill-pill">CSS</span><span class="skill-pill">JavaScript</span><span class="skill-pill">Python</span><span class="skill-pill">C++</span><span class="skill-pill">Flask</span><span class="skill-pill">SQL</span><span class="skill-pill">Networking</span>
+          </div>
+          <p class="small-note muted" data-i18n="skills_note">Technologies I have worked with or am currently learning — not proficiency ratings.</p>
+        </div>
+      </div>
+    </section>
 
-<section id="services" class="sec reveal">
- <h2 data-i18n="t_services">Services</h2>
- <div class="grid4">
-  <article class="card tilt"><span class="ico">⌨</span><h3 data-i18n="sv1">Web Development</h3><p class="muted" data-i18n="sv1d">Clean, scalable front-end and full-stack builds.</p></article>
-  <article class="card tilt"><span class="ico">✦</span><h3 data-i18n="sv2">UI/UX Design</h3><p class="muted" data-i18n="sv2d">Research-led interfaces that convert and delight.</p></article>
-  <article class="card tilt"><span class="ico">▭</span><h3 data-i18n="sv3">Responsive Design</h3><p class="muted" data-i18n="sv3d">Flawless on every phone, tablet, and desktop.</p></article>
-  <article class="card tilt"><span class="ico">⛁</span><h3 data-i18n="sv4">E-Commerce</h3><p class="muted" data-i18n="sv4d">Fast stores built to sell, with smooth checkout.</p></article>
- </div>
-</section>
+    <section id="services" class="sec reveal">
+      <h2 data-i18n="t_services">What I'm Interested In</h2>
+      <div class="grid4">
+        <article class="card tilt"><span class="ico" aria-hidden="true">⌨</span><h3 data-i18n="sv1">Web Development</h3><p class="muted" data-i18n="sv1d">Building responsive and practical web applications.</p></article>
+        <article class="card tilt"><span class="ico" aria-hidden="true">{ }</span><h3 data-i18n="sv2">Programming</h3><p class="muted" data-i18n="sv2d">Learning and creating projects with Python, C++, and JavaScript.</p></article>
+        <article class="card tilt"><span class="ico" aria-hidden="true">⌁</span><h3 data-i18n="sv3">Networking &amp; IT</h3><p class="muted" data-i18n="sv3d">Exploring computer networks, troubleshooting, and IT systems.</p></article>
+        <article class="card tilt"><span class="ico" aria-hidden="true">✦</span><h3 data-i18n="sv4">Problem Solving</h3><p class="muted" data-i18n="sv4d">Turning ideas into tools that can help people with everyday tasks.</p></article>
+      </div>
+    </section>
 
-<section id="work" class="sec reveal">
- <h2 data-i18n="t_work">Selected Work</h2>
- <div class="filters" id="filters"><button class="chip on" data-f="all">All</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="ui">UI-UX</button><button class="chip" data-f="app">Apps</button></div>
- <div class="grid3" id="projects"></div>
-</section>
+    <section id="work" class="sec reveal">
+      <h2 data-i18n="t_work">Featured Projects</h2>
+      <p class="muted section-intro" data-i18n="work_intro">Two projects I've built while learning and practicing software development.</p>
+      <div class="filters" id="filters" aria-label="Project categories">
+        <button type="button" class="chip on" data-f="all" aria-pressed="true" data-i18n="filter_all">All Projects</button>
+        <button type="button" class="chip" data-f="ai" aria-pressed="false" data-i18n="filter_ai">AI &amp; Web</button>
+        <button type="button" class="chip" data-f="management" aria-pressed="false" data-i18n="filter_management">Management</button>
+      </div>
+      <div class="grid3 project-grid" id="projects"></div>
+    </section>
 
-<section id="experience" class="sec reveal">
- <h2 data-i18n="t_exp">Experience</h2>
- <ol class="timeline">
-  <li><time>2022 – Now</time><h3>Senior Web Developer, Company A</h3><p class="muted">Led a 6-person team; cut load time 55% and lifted conversion 28%.</p></li>
-  <li><time>2019 – 2022</time><h3>UI/UX Designer & Developer, Studio B</h3><p class="muted">Built a design system used across 12 products.</p></li>
-  <li><time>2016 – 2019</time><h3>Front-End Developer, Agency C</h3><p class="muted">Delivered 40+ client sites on time and on budget.</p></li>
- </ol>
-</section>
+    <section id="experience" class="sec reveal">
+      <h2 data-i18n="t_exp">My Learning Journey</h2>
+      <ol class="timeline">
+        <li><span class="timeline-tag" data-i18n="journey_status">In progress</span><h3 data-i18n="journey_education">Bachelor's in Computer Science</h3><p class="muted" data-i18n="journey_education_detail">Studying computer science and IT fundamentals, including programming and networking.</p></li>
+        <li><span class="timeline-tag" data-i18n="journey_practical">Hands-on practice</span><h3 data-i18n="journey_projects">Personal Software Projects</h3><p class="muted" data-i18n="journey_projects_detail">Building Hikmat AI and a Gym Management System to learn through practical development.</p></li>
+      </ol>
+    </section>
 
-<section id="testimonials" class="sec reveal">
- <h2 data-i18n="t_test">Kind Words</h2>
- <div class="carousel"><div class="track" id="track"></div><div class="dots" id="dots"></div></div>
-</section>
-
-<section id="contact" class="sec reveal">
- <h2 data-i18n="t_contact">Let's Talk</h2>
- <div class="two">
-  <form id="form" class="card" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   <input name="name" placeholder="Name" required autocomplete="name">
-   <input name="email" type="email" placeholder="Email" required autocomplete="email">
-   <textarea name="message" rows="5" placeholder="Message" required></textarea>
-   <button class="btn" type="submit" data-i18n="send">Send Message</button>
-   <p id="status" role="status" class="muted"></p>
-  </form>
-  <div class="side">
-   <a class="btn big pulse magnetic" href="mailto:you@example.com" data-i18n="together">Let's Work Together</a>
-   <div class="socials"><a href="https://github.com/YOUR_USERNAME">GitHub</a><a href="https://linkedin.com/in/YOUR_USERNAME">LinkedIn</a><a href="https://instagram.com/YOUR_USERNAME">Instagram</a><a href="mailto:you@example.com">Email</a></div>
-  </div>
- </div>
-</section>
-</main>
-<footer>© <span id="yr"></span> Hekmat BARAKZAI</footer>
-<button id="top" class="icon" aria-label="Back to top">↑</button>
-<script src="script.js"></script>
+    <section id="contact" class="sec reveal">
+      <h2 data-i18n="t_contact">Let's Connect</h2>
+      <div class="two">
+        <form id="form" class="card" action="mailto:hikmatbarakzai99@gmail.com" method="get">
+          <h3 data-i18n="contact_title">Write me a message</h3>
+          <p class="muted" data-i18n="contact_note">This form opens your email app with a draft. Please send it from there.</p>
+          <input name="name" type="text" placeholder="Your name" data-i18n-placeholder="p_name" aria-label="Your name" required autocomplete="name" maxlength="100">
+          <input name="email" type="email" placeholder="Your email" data-i18n-placeholder="p_email" aria-label="Your email" required autocomplete="email" maxlength="254">
+          <textarea name="message" rows="5" placeholder="Your message" data-i18n-placeholder="p_message" aria-label="Your message" required maxlength="4000"></textarea>
+          <button class="btn" type="submit" data-i18n="send">Open Email Draft</button>
+          <p id="status" role="status" class="muted" aria-live="polite"></p>
+        </form>
+        <div class="side">
+          <p class="muted" data-i18n="direct_email">Prefer email? Reach me directly:</p>
+          <a class="email-link" href="mailto:hikmatbarakzai99@gmail.com">hikmatbarakzai99@gmail.com</a>
+          <a class="btn big pulse magnetic" href="mailto:hikmatbarakzai99@gmail.com" data-i18n="together">Email Me</a>
+          <div class="socials">
+            <a href="https://github.com/hekmatbarakzai" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:hikmatbarakzai99@gmail.com" data-i18n="email_label">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>© <span id="yr">2026</span> Hekmatullah Barakzai <span class="footer-dot">·</span> <span data-i18n="footer_note">Built with HTML, CSS &amp; JavaScript</span></footer>
+  <button type="button" id="top" class="icon" aria-label="Back to top">↑</button>
 </body>
 </html>

@@ -1,58 +1,243 @@
-const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
-const NAME='YOUR NAME',ROLE='Senior Web Developer & UI/UX Designer';
-/* ---------- i18n (English / Dari) ---------- */
-const T={fa:{nav_about:'درباره من',nav_services:'خدمات',nav_work:'نمونه کارها',nav_exp:'تجربه',nav_contact:'تماس',hire:'استخدامم کنید',hi:'سلام، من',
-lead:'من محصولات سریع، زیبا و قابل‌دسترس طراحی و توسعه می‌دهم.',viewwork:'مشاهده کارها',cv:'دانلود رزومه',s1:'پروژه تکمیل‌شده',s2:'مشتری راضی',s3:'سال تجربه',avail:'آماده برای کار',
-t_about:'درباره من',bio:'من توسعه‌دهنده ارشد وب و طراح UI/UX با بیش از ۸ سال تجربه هستم. طراحی و برنامه‌نویسی را از تحقیق تا کد نهایی به هم پیوند می‌دهم.',
-t_services:'خدمات',sv1:'توسعه وب',sv1d:'ساخت وب‌سایت‌های تمیز و مقیاس‌پذیر.',sv2:'طراحی UI/UX',sv2d:'رابط‌هایی مبتنی بر تحقیق و جذاب.',sv3:'طراحی ریسپانسیو',sv3d:'بی‌نقص روی همه دستگاه‌ها.',sv4:'فروشگاه آنلاین',sv4d:'فروشگاه‌های سریع با پرداخت آسان.',
-t_work:'نمونه کارها',t_exp:'تجربه کاری',t_test:'نظرات مشتریان',t_contact:'بیایید صحبت کنیم',send:'ارسال پیام',together:'بیایید با هم کار کنیم'}};
-const en={};$$('[data-i18n]').forEach(e=>en[e.dataset.i18n]=e.textContent);
-let lang=localStorage.lang||'en';
-function setLang(l){lang=l;localStorage.lang=l;document.documentElement.lang=l;document.documentElement.dir=l==='fa'?'rtl':'ltr';
- $$('[data-i18n]').forEach(e=>e.textContent=(l==='fa'&&T.fa[e.dataset.i18n])||en[e.dataset.i18n]);$('#lang').textContent=l==='fa'?'EN':'FA';typeText()}
-$('#lang').onclick=()=>setLang(lang==='en'?'fa':'en');
-/* ---------- theme ---------- */
-const root=document.documentElement;
-function setTheme(t){root.dataset.theme=t;localStorage.theme=t;$('#theme').textContent=t==='dark'?'☾':'☀'}
-$('#theme').onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
-setTheme(localStorage.theme||'dark');
-/* ---------- typing ---------- */
-let typeTimer;
-function typeText(){clearInterval(typeTimer);const txt=lang==='fa'?`سلام، من ${NAME} — توسعه‌دهنده ارشد وب و طراح UI/UX`:`Hi, I'm ${NAME} — ${ROLE}`;let i=0;
- typeTimer=setInterval(()=>{$('#typed').textContent=txt.slice(0,++i);if(i>=txt.length)clearInterval(typeTimer)},45)}
-/* ---------- data ---------- */
-const skills=[['HTML',95],['CSS',92],['JavaScript',90],['React',88],['UI/UX Design',93],['Figma',90]];
-$('#skills').innerHTML=skills.map(([n,v])=>`<div class="skill"><div><span>${n}</span><span>${v}%</span></div><div class="bar"><i data-w="${v}"></i></div></div>`).join('');
-const projects=[['Fintech Dashboard','web','React, D3, Node','#2f7bff,#1a2a6c'],['Travel Booking App','app','React Native, Firebase','#8b5cf6,#2b1055'],['Banking UX Redesign','ui','Figma, Research','#06b6d4,#8b5cf6'],
-['Fashion Store','web','Shopify, JS, GSAP','#f472b6,#8b5cf6'],['Fitness Tracker','app','Flutter, API','#22d3ee,#2f7bff'],['Design System','ui','Figma, Storybook','#a78bfa,#2f7bff']];
-$('#projects').innerHTML=projects.map(([t,c,tags,g])=>`<article class="card proj tilt" data-c="${c}"><div class="thumb"><i style="background:linear-gradient(135deg,${g})"></i></div><div class="body"><h3>${t}</h3><div class="tags">${tags.split(', ').map(x=>`<span>${x}</span>`).join('')}</div><div class="links"><a href="#" target="_blank" rel="noopener">Live Demo</a><a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener">GitHub</a></div></div></article>`).join('');
-$('#filters').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;$$('.chip').forEach(x=>x.classList.toggle('on',x===b));$$('.proj').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f))};
-const reviews=[['Sara K.','CEO, Lumo','Delivered ahead of schedule — our conversions jumped 30%.'],['James R.','Founder, Orbit','Rare mix of great design taste and rock-solid engineering.'],['Amina T.','PM, Nexa','Communication was superb and the result was stunning.']];
-$('#track').innerHTML=reviews.map(([n,r,q])=>`<div class="slide"><div class="card"><div class="av">${n[0]}</div><div class="stars">★★★★★</div><p>“${q}”</p><p class="muted"><b>${n}</b> · ${r}</p></div></div>`).join('');
-$('#dots').innerHTML=reviews.map((_,i)=>`<button aria-label="Slide ${i+1}"></button>`).join('');
-let cur=0;const go=i=>{cur=(i+reviews.length)%reviews.length;$('#track').style.transform=`translateX(${(lang==='fa'?1:-1)*cur*100}%)`;$$('#dots button').forEach((d,j)=>d.classList.toggle('on',j===cur))};
-$$('#dots button').forEach((d,i)=>d.onclick=()=>go(i));go(0);setInterval(()=>go(cur+1),5000);
-/* ---------- scroll effects ---------- */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');
- $$('.bar i',e.target).forEach(b=>b.style.width=b.dataset.w+'%');io.unobserve(e.target)}),{threshold:.15});
-$$('.reveal').forEach(el=>io.observe(el));
-const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.count;let n=0;
- const t=setInterval(()=>{n+=Math.ceil(end/60);if(n>=end){n=end;clearInterval(t)}el.textContent=n},25);co.unobserve(el)}));
-$$('[data-count]').forEach(el=>co.observe(el));
-addEventListener('scroll',()=>{$('#nav').classList.toggle('scrolled',scrollY>40);$('#top').classList.toggle('show',scrollY>600)},{passive:true});
-$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
-$('#burger').onclick=()=>$('#links').classList.toggle('open');$$('#links a').forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
-/* ---------- interactions ---------- */
-document.addEventListener('click',e=>{const b=e.target.closest('.btn');if(!b)return;const r=b.getBoundingClientRect(),s=document.createElement('span');
- s.className='ripple';s.style.cssText=`width:${r.width}px;height:${r.width}px;left:${e.clientX-r.left-r.width/2}px;top:${e.clientY-r.top-r.width/2}px`;b.append(s);setTimeout(()=>s.remove(),600)});
-if(matchMedia('(hover:hover)').matches){
- $$('.magnetic').forEach(m=>{m.addEventListener('mousemove',e=>{const r=m.getBoundingClientRect();m.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.3}px,${(e.clientY-r.top-r.height/2)*.4}px) scale(1.06)`});m.addEventListener('mouseleave',()=>m.style.transform='')});
- document.addEventListener('mousemove',e=>{const c=e.target.closest('.tilt');$$('.tilt').forEach(t=>{if(t!==c)t.style.transform=''});if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-  c.style.transform=`perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-6px)`})}
-/* ---------- contact form ---------- */
-$('#form').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,s=$('#status');s.textContent='Sending…';
- try{const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});
-  if(r.ok){s.textContent='Thanks! Your message was sent.';f.reset()}else throw 0}
- catch{s.textContent='Could not send. Please email me directly.'}});
-$('#yr').textContent=new Date().getFullYear();
+'use strict';
+const $ = (selector, element = document) => element.querySelector(selector);
+const $$ = (selector, element = document) => [...element.querySelectorAll(selector)];
+
+const NAME = 'Hekmatullah Barakzai';
+const EMAIL = 'hikmatbarakzai99@gmail.com';
+
+/* English and Dari share the same translation keys. */
+const translations = {
+  en: {
+    nav_about: 'About', nav_services: 'Interests', nav_work: 'Projects', nav_exp: 'Journey', nav_contact: 'Contact',
+    hire: 'Contact Me', hero_eyebrow: 'WELCOME TO MY PORTFOLIO',
+    role: 'Computer Science Student & IT Developer',
+    lead: "I'm interested in networking, software development, and building useful web applications.",
+    viewwork: 'Explore My Projects', contactcta: 'Get in Touch',
+    s1: 'Featured Projects', s2: 'Degree in Progress', s3: 'Development & Networking', avail: 'Learning & Building',
+    t_about: 'About Me',
+    bio: "I'm a Computer Science student interested in networking, software development, and building useful web applications.",
+    bio_extra: 'I enjoy learning by building real projects and improving my skills in programming and information technology.',
+    skills_heading: 'Technologies & Interests',
+    skills_note: 'Technologies I have worked with or am currently learning — not proficiency ratings.',
+    t_services: "What I'm Interested In",
+    sv1: 'Web Development', sv1d: 'Building responsive and practical web applications.',
+    sv2: 'Programming', sv2d: 'Learning and creating projects with Python, C++, and JavaScript.',
+    sv3: 'Networking & IT', sv3d: 'Exploring computer networks, troubleshooting, and IT systems.',
+    sv4: 'Problem Solving', sv4d: 'Turning ideas into tools that can help people with everyday tasks.',
+    t_work: 'Featured Projects', work_intro: "Two projects I've built while learning and practicing software development.",
+    filter_all: 'All Projects', filter_ai: 'AI & Web', filter_management: 'Management',
+    live: 'Visit Website', code: 'View Code',
+    t_exp: 'My Learning Journey', journey_status: 'In progress',
+    journey_education: "Bachelor's in Computer Science",
+    journey_education_detail: 'Studying computer science and IT fundamentals, including programming and networking.',
+    journey_practical: 'Hands-on practice', journey_projects: 'Personal Software Projects',
+    journey_projects_detail: 'Building Hikmat AI and a Gym Management System to learn through practical development.',
+    t_contact: "Let's Connect", contact_title: 'Write me a message',
+    contact_note: 'This form opens your email app with a draft. Please send it from there.',
+    p_name: 'Your name', p_email: 'Your email', p_message: 'Your message',
+    send: 'Open Email Draft', draft_status: 'Your email app should open with a draft. Please click Send in your email app.',
+    direct_email: 'Prefer email? Reach me directly:', together: 'Email Me', email_label: 'Email',
+    footer_note: 'Built with HTML, CSS & JavaScript'
+  },
+  fa: {
+    nav_about: 'درباره من', nav_services: 'علاقه‌مندی‌ها', nav_work: 'پروژه‌ها', nav_exp: 'مسیر یادگیری', nav_contact: 'تماس',
+    hire: 'تماس با من', hero_eyebrow: 'به وب‌سایت شخصی من خوش آمدید',
+    role: 'محصل علوم کمپیوتر و توسعه‌دهنده فناوری معلوماتی',
+    lead: 'به شبکه‌های کمپیوتر، توسعه نرم‌افزار و ساخت برنامه‌های کاربردی وب علاقه دارم.',
+    viewwork: 'دیدن پروژه‌های من', contactcta: 'ارتباط با من',
+    s1: 'پروژه‌های معرفی‌شده', s2: 'در حال تحصیل', s3: 'توسعه نرم‌افزار و شبکه', avail: 'در حال یادگیری و ساخت',
+    t_about: 'درباره من',
+    bio: 'من محصل علوم کمپیوتر هستم و به شبکه‌های کمپیوتر، توسعه نرم‌افزار و ساخت برنامه‌های کاربردی و مفید وب علاقه دارم.',
+    bio_extra: 'دوست دارم با ساخت پروژه‌های واقعی یاد بگیرم و مهارت‌هایم را در برنامه‌نویسی و فناوری معلوماتی تقویت کنم.',
+    skills_heading: 'فناوری‌ها و علاقه‌مندی‌ها',
+    skills_note: 'فناوری‌هایی که با آن‌ها کار کرده‌ام یا اکنون در حال یادگیری‌شان هستم؛ نه امتیاز مهارت.',
+    t_services: 'زمینه‌های مورد علاقه من',
+    sv1: 'توسعه وب', sv1d: 'ساخت برنامه‌های کاربردی وب با طراحی سازگار با دستگاه‌های مختلف.',
+    sv2: 'برنامه‌نویسی', sv2d: 'یادگیری و ساخت پروژه‌ها با پایتون، سی‌پلاس‌پلاس و جاوااسکریپت.',
+    sv3: 'شبکه و فناوری معلوماتی', sv3d: 'آشنایی بیشتر با شبکه‌های کمپیوتر، عیب‌یابی و سیستم‌های IT.',
+    sv4: 'حل مسئله', sv4d: 'تبدیل ایده‌ها به ابزارهایی که در کارهای روزمره مفید باشند.',
+    t_work: 'پروژه‌های من', work_intro: 'دو پروژه‌ای که برای یادگیری و تمرین توسعه نرم‌افزار ساخته‌ام.',
+    filter_all: 'همه پروژه‌ها', filter_ai: 'هوش مصنوعی و وب', filter_management: 'مدیریتی',
+    live: 'مشاهده وب‌سایت', code: 'مشاهده کود',
+    t_exp: 'مسیر یادگیری من', journey_status: 'در حال تحصیل',
+    journey_education: 'دوره لیسانس علوم کمپیوتر',
+    journey_education_detail: 'در حال مطالعه مبانی علوم کمپیوتر و فناوری معلوماتی، از جمله برنامه‌نویسی و شبکه.',
+    journey_practical: 'تمرین عملی', journey_projects: 'پروژه‌های شخصی نرم‌افزاری',
+    journey_projects_detail: 'ساخت Hikmat AI و سیستم مدیریت باشگاه ورزشی برای یادگیری از طریق کار عملی.',
+    t_contact: 'ارتباط با من', contact_title: 'برایم پیام بنویسید',
+    contact_note: 'این فورم برنامه ایمیل شما را همراه با متن آماده باز می‌کند. لطفاً ایمیل را از همان‌جا ارسال کنید.',
+    p_name: 'نام شما', p_email: 'ایمیل شما', p_message: 'پیام شما',
+    send: 'باز کردن پیش‌نویس ایمیل', draft_status: 'برنامه ایمیل شما باید با یک پیام آماده باز شود. لطفاً در برنامه ایمیل دکمه ارسال را بزنید.',
+    direct_email: 'برای ارتباط مستقیم، به این آدرس ایمیل بفرستید:', together: 'ارسال ایمیل', email_label: 'ایمیل',
+    footer_note: 'ساخته‌شده با HTML، CSS و JavaScript'
+  }
+};
+
+const projects = [
+  {
+    name: 'Hikmat AI', category: 'ai', visual: 'AI', style: 'ai',
+    technologies: ['Python', 'HTML', 'CSS', 'JavaScript', 'Groq API'],
+    description: {
+      en: 'A personal AI chatbot website project with a multilingual interface, built to explore AI integration and web development.',
+      fa: 'پروژه وب‌سایت چت‌بات هوش مصنوعی با رابط چندزبانه که برای تجربه اتصال هوش مصنوعی و توسعه وب ساخته شده است.'
+    },
+    website: 'https://hekmat-wp61xv9hl-hekmatbarakzai.vercel.app/',
+    github: null // Not currently publicly accessible; add a public repository link when available
+  },
+  {
+    name: 'Gym Management System', category: 'management', visual: 'GM', style: 'gym',
+    technologies: ['Python', 'Flask', 'PostgreSQL', 'HTML', 'CSS'],
+    description: {
+      en: 'A practice management app for organizing trainers and students, tracking fees and payments, and reviewing records.',
+      fa: 'یک برنامه تمرینی برای مدیریت مربیان و شاگردان، پیگیری فیس و پرداخت‌ها و مشاهده سوابق.'
+    },
+    website: 'https://gym-management-system-e28b.onrender.com/',
+    github: 'https://github.com/hekmatbarakzai/gym-management-system'
+  }
+];
+
+const skillNames = ['HTML', 'CSS', 'JavaScript', 'Python', 'C++', 'Flask', 'SQL', 'Networking'];
+const safeStorage = {
+  get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch {} }
+};
+let lang = safeStorage.get('portfolio-lang') === 'fa' ? 'fa' : 'en';
+let category = 'all';
+let typingTimer;
+
+function renderProjects() {
+  const labels = translations[lang];
+  $('#projects').innerHTML = projects.filter(p => category === 'all' || category === p.category).map(p => `
+    <article class="card proj tilt" data-c="${p.category}">
+      <div class="thumb thumb-${p.style}" aria-hidden="true"><span class="thumb-pattern"></span><span class="thumb-initials">${p.visual}</span></div>
+      <div class="body">
+        <h3>${p.name}</h3>
+        <p class="muted project-description">${p.description[lang]}</p>
+        <div class="tags">${p.technologies.map(tag => `<span>${tag}</span>`).join('')}</div>
+        <div class="links">
+          <a href="${p.website}" target="_blank" rel="noopener noreferrer">${labels.live} ↗</a>
+          ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer">${labels.code} ↗</a>` : ''}
+        </div>
+      </div>
+    </article>`).join('');
+}
+
+function typeText() {
+  clearInterval(typingTimer);
+  const el = $('#typed');
+  const text = lang === 'fa' ? `من ${NAME} هستم` : `Hi, I'm ${NAME}`;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = text;
+    return;
+  }
+  let i = 0;
+  el.textContent = '';
+  typingTimer = setInterval(() => {
+    el.textContent = text.slice(0, ++i);
+    if (i >= text.length) clearInterval(typingTimer);
+  }, 45);
+}
+
+function setLang(next) {
+  lang = next === 'fa' ? 'fa' : 'en';
+  safeStorage.set('portfolio-lang', lang);
+  document.documentElement.lang = lang === 'fa' ? 'fa-AF' : 'en';
+  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+  const dict = translations[lang];
+  $$('[data-i18n]').forEach(el => {
+    const value = dict[el.dataset.i18n];
+    if (value !== undefined) el.textContent = value;
+  });
+  $$('[data-i18n-placeholder]').forEach(el => {
+    el.placeholder = dict[el.dataset.i18nPlaceholder] || '';
+  });
+  $('#lang').textContent = lang === 'fa' ? 'EN' : 'FA';
+  $('#status').textContent = '';
+  renderProjects();
+  typeText();
+}
+
+function setTheme(next) {
+  const t = next === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = t;
+  safeStorage.set('portfolio-theme', t);
+  $('#theme').textContent = t === 'dark' ? '☾' : '☀';
+}
+
+$('#lang').addEventListener('click', () => setLang(lang === 'fa' ? 'en' : 'fa'));
+$('#theme').addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+setTheme(safeStorage.get('portfolio-theme') || 'dark');
+$('#skills').innerHTML = skillNames.map(name => `<span class="skill-pill">${name}</span>`).join('');
+
+$('#filters').addEventListener('click', e => {
+  const button = e.target.closest('.chip');
+  if (!button) return;
+  category = button.dataset.f;
+  $$('.chip', $('#filters')).forEach(chip => {
+    const active = chip === button;
+    chip.classList.toggle('on', active);
+    chip.setAttribute('aria-pressed', String(active));
+  });
+  renderProjects();
+});
+
+$('#form').addEventListener('submit', event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const fields = new FormData(form);
+  const subject = `Portfolio message from ${fields.get('name')}`;
+  const body = `Name: ${fields.get('name')}\nEmail: ${fields.get('email')}\n\n${fields.get('message')}`;
+  const href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  $('#status').textContent = translations[lang].draft_status;
+  window.location.href = href;
+});
+
+const menuButton = $('#burger');
+menuButton.addEventListener('click', () => {
+  const isOpen = $('#links').classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+});
+$$('#links a').forEach(link => link.addEventListener('click', () => {
+  $('#links').classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+}));
+
+const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('in');
+    revealObserver.unobserve(entry.target);
+  });
+}, { threshold: .1 }) : null;
+$$('.reveal').forEach(el => revealObserver ? revealObserver.observe(el) : el.classList.add('in'));
+
+window.addEventListener('scroll', () => {
+  $('#nav').classList.toggle('scrolled', scrollY > 40);
+  $('#top').classList.toggle('show', scrollY > 600);
+}, { passive: true });
+$('#top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+document.addEventListener('click', event => {
+  const button = event.target.closest('.btn');
+  if (!button) return;
+  const rect = button.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  const size = rect.width;
+  ripple.style.cssText = `width:${size}px;height:${size}px;left:${event.clientX - rect.left - size / 2}px;top:${event.clientY - rect.top - size / 2}px`;
+  button.append(ripple);
+  setTimeout(() => ripple.remove(), 600);
+});
+if (window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+  $$('.magnetic').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .15}px, ${(e.clientY - r.top - r.height / 2) * .18}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+}
+
+$('#yr').textContent = new Date().getFullYear();
 setLang(lang);
