@@ -551,3 +551,11 @@ button:focus-visible, a:focus-visible {
     background: var(--bg2);
   }
 }
+
+/* BeFit: matches existing frosted-glass project card styling. */
+.thumb-befit {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(68, 225, 165, .80), transparent 51%),
+    radial-gradient(circle at 85% 78%, rgba(103, 163, 255, .32), transparent 54%),
+    linear-gradient(135deg, #0b3440, #176359 56%, #12314d);
+}

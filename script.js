@@ -24,14 +24,14 @@ const translations = {
     sv2: 'Programming', sv2d: 'Learning and creating projects with Python, C++, and JavaScript.',
     sv3: 'Networking & IT', sv3d: 'Exploring computer networks, troubleshooting, and IT systems.',
     sv4: 'Problem Solving', sv4d: 'Turning ideas into tools that can help people with everyday tasks.',
-    t_work: 'Featured Projects', work_intro: "Three projects I've built while learning and practicing software development.",
-    filter_all: 'All Projects', filter_ai: 'AI & Web', filter_management: 'Management', filter_tools: 'Web Tools',
+    t_work: 'Featured Projects', work_intro: "Four projects I've built while learning and practicing software development.",
+    filter_all: 'All Projects', filter_ai: 'AI & Web', filter_management: 'Management', filter_tools: 'Web Tools', filter_fitness: 'Fitness',
     live: 'Visit Website', code: 'View Code',
     t_exp: 'My Learning Journey', journey_status: 'In progress',
     journey_education: "Bachelor's in Computer Science",
     journey_education_detail: 'Studying computer science and IT fundamentals, including programming and networking.',
     journey_practical: 'Hands-on practice', journey_projects: 'Personal Software Projects',
-    journey_projects_detail: 'Building Hikmat AI, a Gym Management System, and CV Maker to learn through practical development.',
+    journey_projects_detail: 'Building Hikmat AI, a Gym Management System, CV Maker, and BeFit to learn through practical development.',
     t_contact: "Let's Connect", contact_title: 'Write me a message',
     contact_note: 'This form opens your email app with a draft. Please send it from there.',
     p_name: 'Your name', p_email: 'Your email', p_message: 'Your message',
@@ -56,14 +56,14 @@ const translations = {
     sv2: 'برنامه‌نویسی', sv2d: 'یادگیری و ساخت پروژه‌ها با پایتون، سی‌پلاس‌پلاس و جاوااسکریپت.',
     sv3: 'شبکه و فناوری معلوماتی', sv3d: 'آشنایی بیشتر با شبکه‌های کمپیوتر، عیب‌یابی و سیستم‌های IT.',
     sv4: 'حل مسئله', sv4d: 'تبدیل ایده‌ها به ابزارهایی که در کارهای روزمره مفید باشند.',
-    t_work: 'پروژه‌های من', work_intro: 'سه پروژه‌ای که برای یادگیری و تمرین توسعه نرم‌افزار ساخته‌ام.',
-    filter_all: 'همه پروژه‌ها', filter_ai: 'هوش مصنوعی و وب', filter_management: 'مدیریتی', filter_tools: 'ابزارهای وب',
+    t_work: 'پروژه‌های من', work_intro: 'چهار پروژه‌ای که برای یادگیری و تمرین توسعه نرم‌افزار ساخته‌ام.',
+    filter_all: 'همه پروژه‌ها', filter_ai: 'هوش مصنوعی و وب', filter_management: 'مدیریتی', filter_tools: 'ابزارهای وب', filter_fitness: 'ورزش و فیتنس',
     live: 'مشاهده وب‌سایت', code: 'مشاهده کود',
     t_exp: 'مسیر یادگیری من', journey_status: 'در حال تحصیل',
     journey_education: 'دوره لیسانس علوم کمپیوتر',
     journey_education_detail: 'در حال مطالعه مبانی علوم کمپیوتر و فناوری معلوماتی، از جمله برنامه‌نویسی و شبکه.',
     journey_practical: 'تمرین عملی', journey_projects: 'پروژه‌های شخصی نرم‌افزاری',
-    journey_projects_detail: 'ساخت Hikmat AI، سیستم مدیریت باشگاه ورزشی و CV Maker برای یادگیری از طریق کار عملی.',
+    journey_projects_detail: 'ساخت Hikmat AI، سیستم مدیریت باشگاه ورزشی، CV Maker و BeFit برای یادگیری از طریق کار عملی.',
     t_contact: 'ارتباط با من', contact_title: 'برایم پیام بنویسید',
     contact_note: 'این فورم برنامه ایمیل شما را همراه با متن آماده باز می‌کند. لطفاً ایمیل را از همان‌جا ارسال کنید.',
     p_name: 'نام شما', p_email: 'ایمیل شما', p_message: 'پیام شما',
@@ -103,7 +103,18 @@ const projects = [
     },
     website: 'https://cv-maker-pied-theta.vercel.app/',
     github: 'https://github.com/hekmatbarakzai/CV-maker'
+  },
+  {
+    name: 'BeFit', category: 'fitness', visual: 'BF', style: 'befit',
+    technologies: ['Fitness', 'Web Project'],
+    description: {
+      en: 'A fitness-themed web project. Visit the live website to explore its design and current features.',
+      fa: 'یک پروژه وب‌سایت با موضوع ورزش و فیتنس. برای آشنایی با طراحی و امکانات فعلی آن، وب‌سایت را باز کنید.'
+    },
+    website: 'https://befit-hekmat.vercel.app/',
+    github: null // No confirmed public code repository for this project
   }
+
 ];
 
 const skillNames = ['HTML', 'CSS', 'JavaScript', 'Python', 'C++', 'Flask', 'SQL', 'Networking'];

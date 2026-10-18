@@ -8,7 +8,8 @@ A responsive static portfolio built with HTML, CSS, and JavaScript, customized w
 - English and Dari language switching (including project descriptions and contact form placeholders)
 - Dark/light theme and mobile navigation
 - Skills/interests without made-up ratings
-- Three existing projects: Hikmat AI, Gym Management System, and CV Maker
+- Four existing projects: Hikmat AI, Gym Management System, CV Maker, and BeFit
+- BeFit website link: https://befit-hekmat.vercel.app/ (provided by the project owner; its public repository and specific features were not verified).
 - CV Maker links to https://cv-maker-pied-theta.vercel.app/ and https://github.com/hekmatbarakzai/CV-maker, as listed on its GitHub repository; its live site should be checked after deployment.
 - Gym Management System has its existing website and GitHub links; Hikmat AI shows a website link only because its previous GitHub repository URL was not confirmed publicly accessible.
 - Education and hands-on project experience, without imaginary job history or testimonials
@@ -47,6 +48,12 @@ Because this is a static site without a backend, the form opens the visitor's em
    ```
 
 3. In your existing Vercel project, check that the Git repository and branch are connected. Select framework **Other** and root directory `./` for this simple static website. Vercel deploys new pushes automatically when Git integration is configured.
-4. Open the Vercel URL and test the English/Dari button, theme button, all three project links and contact email.
+4. Open the Vercel URL and test the English/Dari button, theme button, all four project links and contact email.
 
 No private API tokens are included or needed.
+
+## October 2026 update: BeFit
+
+BeFit was added as the fourth card in the project list, with a new Fitness filter and English/Dari descriptions. The GitHub code button is intentionally hidden because no BeFit repository URL was confirmed. To add one, edit the `github: null` value on BeFit's project object in `script.js`.
+
+The original CSS glassmorphism design, JavaScript features, profile photo, Instagram, phone number, and email were preserved. The site remains plain HTML/CSS/JavaScript suitable for Vercel.
