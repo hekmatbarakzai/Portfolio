@@ -559,3 +559,24 @@ button:focus-visible, a:focus-visible {
     radial-gradient(circle at 85% 78%, rgba(103, 163, 255, .32), transparent 54%),
     linear-gradient(135deg, #0b3440, #176359 56%, #12314d);
 }
+
+/* Glow Cursor Effect */
+.glow-cursor__canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Disable effect on touch devices and reduced-motion settings */
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .glow-cursor__canvas {
+    display: none;
+  }
+}
+
