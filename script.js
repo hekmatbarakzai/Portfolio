@@ -1,3 +1,4 @@
+
 'use strict';
 const $ = (selector, element = document) => element.querySelector(selector);
 const $$ = (selector, element = document) => [...element.querySelectorAll(selector)];
@@ -5,7 +6,6 @@ const $$ = (selector, element = document) => [...element.querySelectorAll(select
 const NAME = 'Hekmatullah Barakzai';
 const EMAIL = 'hikmatbarakzai99@gmail.com';
 
-/* English and Dari share the same translation keys. */
 const translations = {
   en: {
     nav_about: 'About', nav_services: 'Interests', nav_work: 'Projects', nav_exp: 'Journey', nav_contact: 'Contact',
@@ -24,14 +24,15 @@ const translations = {
     sv2: 'Programming', sv2d: 'Learning and creating projects with Python, C++, and JavaScript.',
     sv3: 'Networking & IT', sv3d: 'Exploring computer networks, troubleshooting, and IT systems.',
     sv4: 'Problem Solving', sv4d: 'Turning ideas into tools that can help people with everyday tasks.',
-    t_work: 'Featured Projects', work_intro: "Four projects I've built while learning and practicing software development.",
+    t_work: 'Featured Projects', work_intro: 'Nine software projects, including web applications, databases, and desktop systems.',
     filter_all: 'All Projects', filter_ai: 'AI & Web', filter_management: 'Management', filter_tools: 'Web Tools', filter_fitness: 'Fitness',
+    filter_database: 'Databases', filter_website: 'Websites',
     live: 'Visit Website', code: 'View Code',
     t_exp: 'My Learning Journey', journey_status: 'In progress',
     journey_education: "Bachelor's in Computer Science",
     journey_education_detail: 'Studying computer science and IT fundamentals, including programming and networking.',
     journey_practical: 'Hands-on practice', journey_projects: 'Personal Software Projects',
-    journey_projects_detail: 'Building Hikmat AI, a Gym Management System, CV Maker, and BeFit to learn through practical development.',
+    journey_projects_detail: 'Building Hikmat AI, Gym Management System, CV Maker, BeFit, Construction ERP, QarzDB, Supermarket DB, HEKMAT TECH Website, and Pharmacy DB.',
     t_contact: "Let's Connect", contact_title: 'Write me a message',
     contact_note: 'This form opens your email app with a draft. Please send it from there.',
     p_name: 'Your name', p_email: 'Your email', p_message: 'Your message',
@@ -56,14 +57,15 @@ const translations = {
     sv2: 'برنامه‌نویسی', sv2d: 'یادگیری و ساخت پروژه‌ها با پایتون، سی‌پلاس‌پلاس و جاوااسکریپت.',
     sv3: 'شبکه و فناوری معلوماتی', sv3d: 'آشنایی بیشتر با شبکه‌های کمپیوتر، عیب‌یابی و سیستم‌های IT.',
     sv4: 'حل مسئله', sv4d: 'تبدیل ایده‌ها به ابزارهایی که در کارهای روزمره مفید باشند.',
-    t_work: 'پروژه‌های من', work_intro: 'چهار پروژه‌ای که برای یادگیری و تمرین توسعه نرم‌افزار ساخته‌ام.',
+    t_work: 'پروژه‌های من', work_intro: 'نه پروژه نرم‌افزاری، شامل برنامه‌های وب، دیتابیس‌ها و سیستم‌های دسکتاپ.',
     filter_all: 'همه پروژه‌ها', filter_ai: 'هوش مصنوعی و وب', filter_management: 'مدیریتی', filter_tools: 'ابزارهای وب', filter_fitness: 'ورزش و فیتنس',
+    filter_database: 'دیتابیس‌ها', filter_website: 'وب‌سایت‌ها',
     live: 'مشاهده وب‌سایت', code: 'مشاهده کود',
     t_exp: 'مسیر یادگیری من', journey_status: 'در حال تحصیل',
     journey_education: 'دوره لیسانس علوم کمپیوتر',
     journey_education_detail: 'در حال مطالعه مبانی علوم کمپیوتر و فناوری معلوماتی، از جمله برنامه‌نویسی و شبکه.',
     journey_practical: 'تمرین عملی', journey_projects: 'پروژه‌های شخصی نرم‌افزاری',
-    journey_projects_detail: 'ساخت Hikmat AI، سیستم مدیریت باشگاه ورزشی، CV Maker و BeFit برای یادگیری از طریق کار عملی.',
+    journey_projects_detail: 'توسعه Hikmat AI، سیستم مدیریت باشگاه، CV Maker، BeFit، Construction ERP، QarzDB، Supermarket DB، وب‌سایت HEKMAT TECH و Pharmacy DB.',
     t_contact: 'ارتباط با من', contact_title: 'برایم پیام بنویسید',
     contact_note: 'این فورم برنامه ایمیل شما را همراه با متن آماده باز می‌کند. لطفاً ایمیل را از همان‌جا ارسال کنید.',
     p_name: 'نام شما', p_email: 'ایمیل شما', p_message: 'پیام شما',
@@ -82,7 +84,7 @@ const projects = [
       fa: 'پروژه وب‌سایت چت‌بات هوش مصنوعی با رابط چندزبانه که برای تجربه اتصال هوش مصنوعی و توسعه وب ساخته شده است.'
     },
     website: 'https://hekmat-wp61xv9hl-hekmatbarakzai.vercel.app/',
-    github: null // Not currently publicly accessible; add a public repository link when available
+    github: null
   },
   {
     name: 'Gym Management System', category: 'management', visual: 'GM', style: 'gym',
@@ -112,10 +114,78 @@ const projects = [
       fa: 'یک پروژه وب‌سایت با موضوع ورزش و فیتنس. برای آشنایی با طراحی و امکانات فعلی آن، وب‌سایت را باز کنید.'
     },
     website: 'https://befit-hekmat.vercel.app/',
-    github: null // No confirmed public code repository for this project
+    github: null
+  },
+  {
+    name: 'HEKMAT Construction ERP', category: 'management', visual: 'CE', style: 'construction',
+    gradient: 'radial-gradient(circle at 18% 18%, rgba(245,174,82,.78), transparent 54%), linear-gradient(135deg,#30251b,#72502b 58%,#1d3449)',
+    technologies: ['Electron', 'SQLite', 'Desktop ERP'],
+    description: {
+      en: 'A desktop ERP for organizing construction projects, tracking payments and installments, and managing project records.',
+      fa: 'یک سیستم ERP دسکتاپ برای تنظیم پروژه‌های ساختمانی، پیگیری پرداخت‌ها و قسط‌ها و مدیریت سوابق پروژه.'
+    },
+    website: null, github: null,
+    status: { en: 'Private desktop application', fa: 'برنامه دسکتاپ خصوصی' }
+  },
+  {
+    name: 'QarzDB', category: 'database', visual: 'QZ', style: 'qarz',
+    gradient: 'radial-gradient(circle at 82% 18%, rgba(180,126,255,.72), transparent 54%), linear-gradient(135deg,#241638,#4a2c68 58%,#17324a)',
+    technologies: ['Database', 'Debt Tracking'],
+    description: {
+      en: 'A database project for recording debts, payments, remaining balances, and customer records.',
+      fa: 'یک پروژه دیتابیس برای ثبت قرض‌ها، پرداخت‌ها، باقی‌داری و سوابق مشتریان.'
+    },
+    website: null, github: 'https://github.com/hekmatbarakzai/QarzDB'
+  },
+  {
+    name: 'Supermarket DB', category: 'database', visual: 'SM', style: 'supermarket',
+    gradient: 'radial-gradient(circle at 20% 20%, rgba(76,219,161,.78), transparent 54%), linear-gradient(135deg,#123b35,#1e6759 58%,#17334c)',
+    technologies: ['Database', 'Inventory', 'Sales Management'],
+    description: {
+      en: 'A supermarket database project for organizing product, inventory, and sales records.',
+      fa: 'یک پروژه دیتابیس سوپرمارکیت برای تنظیم سوابق اجناس، موجودی گدام و فروشات.'
+    },
+    website: null, github: 'https://github.com/hekmatbarakzai/supermarketDB'
+  },
+  {
+    name: 'HEKMAT TECH Website', category: 'website', visual: 'HT', style: 'hekmat',
+    gradient: 'radial-gradient(circle at 78% 18%, rgba(103,181,255,.78), transparent 54%), linear-gradient(135deg,#142744,#31558b 58%,#39265f)',
+    technologies: ['Business Website', 'Dari & English'],
+    description: {
+      en: 'The HEKMAT TECH business website presenting website, database, and custom software services.',
+      fa: 'وب‌سایت تجارتی HEKMAT TECH برای معرفی خدمات طراحی وب‌سایت، دیتابیس و نرم‌افزارهای اختصاصی.'
+    },
+    website: null, github: 'https://github.com/hekmatbarakzai/Advertize_web'
+  },
+  {
+    name: 'Pharmacy DB', category: 'database', visual: 'PH', style: 'pharmacy',
+    gradient: 'radial-gradient(circle at 20% 18%, rgba(95,224,203,.76), transparent 54%), linear-gradient(135deg,#123a43,#176a70 58%,#27375e)',
+    technologies: ['Pharmacy Management', 'Database'],
+    description: {
+      en: 'A completed pharmacy database application.',
+      fa: 'یک برنامه دیتابیس دواخانه که تکمیل شده است.'
+    },
+    website: null, github: null,
+    status: { en: 'Completed', fa: 'تکمیل‌شده' }
   }
-
 ];
+
+/* Add the new project categories without changing index.html. */
+[
+  { category: 'database', key: 'filter_database' },
+  { category: 'website', key: 'filter_website' }
+].forEach(({ category, key }) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'chip';
+  button.dataset.f = category;
+  button.dataset.i18n = key;
+  $('#filters').append(button);
+});
+
+/* Keep the project count in the hero synchronized with the project list. */
+const projectCount = $('.stats > div:first-child b');
+if (projectCount) projectCount.textContent = String(projects.length).padStart(2, '0');
 
 const skillNames = ['HTML', 'CSS', 'JavaScript', 'Python', 'C++', 'Flask', 'SQL', 'Networking'];
 const safeStorage = {
@@ -130,13 +200,16 @@ function renderProjects() {
   const labels = translations[lang];
   $('#projects').innerHTML = projects.filter(p => category === 'all' || category === p.category).map(p => `
     <article class="card proj tilt" data-c="${p.category}">
-      <div class="thumb thumb-${p.style}" aria-hidden="true"><span class="thumb-pattern"></span><span class="thumb-initials">${p.visual}</span></div>
+      <div class="thumb thumb-${p.style}" ${p.gradient ? `style="background:${p.gradient}"` : ''} aria-hidden="true"><span class="thumb-pattern"></span><span class="thumb-initials">${p.visual}</span></div>
       <div class="body">
         <h3>${p.name}</h3>
         <p class="muted project-description">${p.description[lang]}</p>
-        <div class="tags">${p.technologies.map(tag => `<span>${tag}</span>`).join('')}</div>
+        <div class="tags">
+          ${p.technologies.map(tag => `<span>${tag}</span>`).join('')}
+          ${p.status ? `<span>${p.status[lang]}</span>` : ''}
+        </div>
         <div class="links">
-          <a href="${p.website}" target="_blank" rel="noopener noreferrer">${labels.live} ↗</a>
+          ${p.website ? `<a href="${p.website}" target="_blank" rel="noopener noreferrer">${labels.live} ↗</a>` : ''}
           ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer">${labels.code} ↗</a>` : ''}
         </div>
       </div>
@@ -250,6 +323,7 @@ document.addEventListener('click', event => {
   button.append(ripple);
   setTimeout(() => ripple.remove(), 600);
 });
+
 if (window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
   $$('.magnetic').forEach(el => {
     el.addEventListener('mousemove', e => {
