@@ -573,8 +573,8 @@ button:focus-visible, a:focus-visible {
   -webkit-user-select: none;
 }
 
-/* Disable effect on touch devices and reduced-motion settings */
-@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+/* Disable the cursor overlay on touch devices */
+@media (pointer: coarse) {
   .glow-cursor__canvas {
     display: none;
   }
